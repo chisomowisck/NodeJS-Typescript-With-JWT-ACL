@@ -44,7 +44,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"chisomo\",\r\n    \"email\" : \"chisomowisck@gmail.com\",\r\n    \"password\" : \"12345678\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"chisomo\",\r\n    \"email\" : \"chisomowisck@gmail.com\",\r\n    \"password\" : \"12345678\",\r\n    \"roles\" : [\"admin\",\"user\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -93,7 +93,13 @@
 					"name": "Modulators",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjgxNTU1NTk2LCJleHAiOjE2ODE2NDE5OTZ9.R2A1WirPNQdMuQDmg974tkONynw_qhvPAlEwIqYsBAg",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{baseUrl}}/api/test/mod",
 							"host": [
@@ -111,17 +117,33 @@
 				{
 					"name": "User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjgxNTU1NTk2LCJleHAiOjE2ODE2NDE5OTZ9.R2A1WirPNQdMuQDmg974tkONynw_qhvPAlEwIqYsBAg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjgxNTU1NTk2LCJleHAiOjE2ODE2NDE5OTZ9.R2A1WirPNQdMuQDmg974tkONynw_qhvPAlEwIqYsBAg",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{baseUrl}}/api/test/all",
+							"raw": "{{baseUrl}}/api/test/user",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"test",
-								"all"
+								"user"
 							]
 						}
 					},
@@ -131,16 +153,22 @@
 					"name": "Admin",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjgxNTU1NTk2LCJleHAiOjE2ODE2NDE5OTZ9.R2A1WirPNQdMuQDmg974tkONynw_qhvPAlEwIqYsBAg",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{baseUrl}}/api/test/all",
+							"raw": "{{baseUrl}}/api/test/admin",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"test",
-								"all"
+								"admin"
 							]
 						}
 					},
